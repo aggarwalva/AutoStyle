@@ -57,8 +57,10 @@ public class AutoStyle {
 
             write.close();
             out.close();
+            read.close();
+            in.close();
 
-            //f.delete();
+            System.out.println("Deleted: " + f.delete());
             temp.renameTo(f);
         } catch(Exception e){
             System.out.println("Exception in main");
