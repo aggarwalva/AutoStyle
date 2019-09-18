@@ -1,10 +1,14 @@
 package com.company;
 
 import com.company.Errors.*;
+import javafx.application.Application;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.util.ArrayList;
 
-public class AutoStyle {
+public class AutoStyle extends Application {
     public static void main(String[] args){
         FileReader in = null, inLog = null;
         FileWriter out = null;
@@ -67,5 +71,12 @@ public class AutoStyle {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public void start(Stage primaryStage){
+        primaryStage.setTitle("AutoStyle");
+        TextField inPath = new TextField("Enter input file here");
+        TextField outPath = new TextField("Enter output file here");
     }
 }
