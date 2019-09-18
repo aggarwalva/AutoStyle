@@ -2,7 +2,12 @@ package com.company;
 
 import com.company.Errors.*;
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -10,6 +15,8 @@ import java.util.ArrayList;
 
 public class AutoStyle extends Application {
     public static void main(String[] args){
+        launch(args);
+
         FileReader in = null, inLog = null;
         FileWriter out = null;
         BufferedReader read = null, readLog = null;
@@ -76,7 +83,18 @@ public class AutoStyle extends Application {
     @Override
     public void start(Stage primaryStage){
         primaryStage.setTitle("AutoStyle");
-        TextField inPath = new TextField("Enter input file here");
-        TextField outPath = new TextField("Enter output file here");
+        TextField inPath = new TextField("Enter input filepath here");
+        TextField outPath = new TextField("Enter output filepath here");
+
+        GridPane root = new GridPane();
+        root.setAlignment(Pos.TOP_CENTER);
+        root.setHgap(25);
+        root.setVgap(10);
+        root.setPadding(new Insets(25,25,25,25));
+        root.add(inPath, 0,0);
+        root.add(outPath,0,1);
+        primaryStage.setScene(new Scene(root, 500,200));
+        primaryStage.show();
+        String s = "";
     }
 }
